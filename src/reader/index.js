@@ -415,7 +415,9 @@ function G(y) {
   }, G(y);
 }
 var mt = function() {
-  var y = import.meta.url;
+  var scriptElement = document.currentScript;
+  var scriptUrl = new URL(scriptElement.src);
+  var y = scriptUrl.href;
   return function() {
     var p = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {}, s = p, T, F;
     s.ready = new Promise(function(n, e) {
